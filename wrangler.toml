@@ -1,0 +1,16 @@
+name = "tenderbrain-zm"
+main = "src/worker.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+OCDS_URL = "https://data.open-contracting.org/publication/3"
+ADMIN_EMAIL = "admin@tenderbrain.co.zm"
+ADMIN_PASSWORD = "changeme123"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tenderbrain-db"
+database_id = "REPLACE_WITH_D1_ID_AFTER_CREATE"
+
+[triggers]
+crons = ["30 4 * * *"]
