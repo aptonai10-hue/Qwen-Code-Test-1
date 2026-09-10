@@ -1,0 +1,17 @@
+{
+  "name": "tenderbrain-zm",
+  "version": "1.0.0",
+  "description": "MVP SaaS for Zambian contractors - ZPPA tender monitoring",
+  "main": "src/worker.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate": "node scripts/migrate.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240117.0",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.28.0"
+  }
+}
