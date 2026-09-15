@@ -1,0 +1,6 @@
+export function paymentCertificationCompletionInstruction(data = {}) {
+  const statementReference = String(data.contractorStatementReference || "[contractor statement / application reference to be completed]").trim();
+  const certifier = String(data.certifierName || "[Engineer / Contract Manager / Certifier to be completed]").trim();
+  return `Contractor statement / application reference: ${statementReference}\n\nThis draft does not confirm that works, materials, measurements, deductions, variations, tax treatment, or payment entitlement have been inspected, approved, or certified. It records user-supplied valuation data only. The authorised certifier must confirm the measured works, supporting records, contractual deductions, approved variations, and figures against the signed contract before signing.\n\nContractor's authorised representative: ______________________________\nDate submitted: _________________________________________________\n\nEngineer / Contract Manager / Certifier: ${certifier}\nAuthorised certification signature: _________________________________\nCertification date: _______________________________________________\n\nEmployer payment authorisation (if separately required): _____________\nAuthorisation date: _______________________________________________`;
+}
+

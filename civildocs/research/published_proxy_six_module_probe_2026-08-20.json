@@ -1,0 +1,61 @@
+{
+  "endpoint": "https://civildocs-zuztwkvm.manus.space/api/gemini",
+  "generatedAt": "2026-08-20T04:01:58.117Z",
+  "results": [
+    {
+      "module": "CD-01",
+      "status": 200,
+      "ok": true,
+      "elapsedMs": 24483,
+      "code": null,
+      "hasCandidates": true,
+      "candidateTextLength": 6233
+    },
+    {
+      "module": "CD-02",
+      "status": 200,
+      "ok": true,
+      "elapsedMs": 3887,
+      "code": null,
+      "hasCandidates": true,
+      "candidateTextLength": 490
+    },
+    {
+      "module": "CD-03",
+      "status": 200,
+      "ok": true,
+      "elapsedMs": 4301,
+      "code": null,
+      "hasCandidates": true,
+      "candidateTextLength": 1463
+    },
+    {
+      "module": "CD-04",
+      "status": 429,
+      "ok": false,
+      "elapsedMs": 617,
+      "code": "RATE_LIMITED",
+      "hasCandidates": false,
+      "candidateTextLength": 0
+    },
+    {
+      "module": "CD-05",
+      "status": 429,
+      "ok": false,
+      "elapsedMs": 2020,
+      "code": "RATE_LIMITED",
+      "hasCandidates": false,
+      "candidateTextLength": 0
+    },
+    {
+      "module": "CD-06",
+      "status": 429,
+      "ok": false,
+      "elapsedMs": 1310,
+      "code": "RATE_LIMITED",
+      "hasCandidates": false,
+      "candidateTextLength": 0
+    }
+  ]
+}
+
