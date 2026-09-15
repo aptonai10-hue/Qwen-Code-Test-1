@@ -1,0 +1,34 @@
+{
+  "endpoint": "https://civildocs-zuztwkvm.manus.space/api/gemini",
+  "generatedAt": "2026-08-20T04:04:13.482Z",
+  "results": [
+    {
+      "module": "CD-04",
+      "status": 200,
+      "ok": true,
+      "elapsedMs": 31791,
+      "code": null,
+      "hasCandidates": true,
+      "candidateTextLength": 3895
+    },
+    {
+      "module": "CD-05",
+      "status": 200,
+      "ok": true,
+      "elapsedMs": 6044,
+      "code": null,
+      "hasCandidates": true,
+      "candidateTextLength": 2374
+    },
+    {
+      "module": "CD-06",
+      "status": 200,
+      "ok": true,
+      "elapsedMs": 4943,
+      "code": null,
+      "hasCandidates": true,
+      "candidateTextLength": 2561
+    }
+  ]
+}
+

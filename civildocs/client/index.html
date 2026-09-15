@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CivilDocs: a browser-based contractor documentation toolkit." />
+    <title>CivilDocs | Contractor Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="masthead">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true"><span class="brand-mark__arch"></span></span>
+          <div>
+            <p class="brand-name"><span>Civil</span><b>Docs</b></p>
+            <p class="brand-tagline">Document preparation register</p>
+          </div>
+        </div>
+        <span class="market-label">Zambia · contractor documents</span>
+        <span class="pilot-watermark" aria-hidden="true">Pilot test</span>
+      </header>
+
+      <p id="qa-stress-notice" class="status-message warning" role="status" aria-live="polite" hidden>QA stress session active in this browser only. Generations are not counted against the public pilot allowance.</p>
+
+      <main>
+        <section id="access-view" class="view pilot-access" aria-labelledby="pilot-access-title">
+          <div class="pilot-access__grid">
+            <div class="pilot-access__intro">
+              <p class="eyebrow">Document register</p>
+              <h1 id="pilot-access-title">Prepare your documents.</h1>
+              <p>Accept the Pilot Terms, then open the contractor document register.</p>
+              <div class="pilot-terms-consent">
+                <div class="pilot-terms-consent__check"><input id="pilot-terms-checkbox" type="checkbox" aria-describedby="pilot-terms-help"><label for="pilot-terms-checkbox">I agree to the Pilot Terms.</label></div>
+                <p id="pilot-terms-help">Your acceptance is saved on this device.</p>
+                <button id="access-terms-link" class="inline-link-button" type="button">Read the terms</button>
+              </div>
+              <button id="test-free-button" class="primary-button pilot-access__cta" type="button" disabled>Use for free</button>
+              <p id="pilot-access-status" class="pilot-access__note" role="status" aria-live="polite">Agree to the Pilot Terms to unlock CivilDocs.</p>
+              <div class="pilot-entry-register" aria-hidden="true" hidden></div>
+            </div>
+            <aside class="pilot-access__account-card" aria-label="Pilot administrative information">
+              <div class="pilot-access__visual" aria-hidden="true"></div>
+              <p class="pilot-access__card-label">Working documents</p>
+              <h2>Review before use.</h2>
+              <p>Drafts and preferences stay on this device.</p>
+              <div class="pilot-access__note-card"><strong>Before you use a draft</strong><span>Check every quantity, rate, date, contract reference and site observation before professional use.</span></div>
+              <div class="pilot-access__disabled-actions" aria-label="Account access unavailable during pilot">
+                <button class="unavailable-control" type="button" disabled>Sign in <span>Unavailable</span></button>
+                <button class="unavailable-control" type="button" disabled>Sign up <span>Unavailable</span></button>
+                <button class="unavailable-control" type="button" disabled>Sign in with Google <span>Unavailable</span></button>
+              </div>
+              <button id="access-pricing-button" class="text-button" type="button">Pilot pricing</button>
+            </aside>
+          </div>
+          <section id="pilot-pricing-preview" class="pilot-pricing-preview" aria-labelledby="pilot-pricing-preview-title">
+            <div class="pilot-pricing-preview__heading"><div><p class="eyebrow">Rate schedule</p><h2 id="pilot-pricing-preview-title">Plans after the pilot.</h2><p>Purchasing is unavailable in this pilot.</p></div><span class="pilot-unavailable-badge">Pilot only</span></div>
+            <div class="pilot-pricing-preview__grid">
+              <article class="pilot-plan-card pilot-plan-card--featured"><p class="pilot-plan-card__label">Pilot option</p><h3>Founding Engineer</h3><p class="pilot-plan-card__price"><span>ZMW</span> 199 <small>/ month</small></p><ul><li>All six modules</li><li>30 AI generations per user/month</li><li>Pilot feedback route</li></ul><button class="pilot-plan-card__unavailable" type="button" disabled>Unavailable during pilot</button></article>
+              <article class="pilot-plan-card"><p class="pilot-plan-card__label">Standard individual plan</p><h3>Professional</h3><p class="pilot-plan-card__price"><span>ZMW</span> 299 <small>per user, per month</small></p><ul><li>All six modules</li><li>30 proposed AI generations per named user/month</li><li>PDF export and local draft recovery</li></ul><button class="pilot-plan-card__unavailable" type="button" disabled>Unavailable during pilot</button></article>
+              <article class="pilot-plan-card"><p class="pilot-plan-card__label">Small contractor team</p><h3>Firm</h3><p class="pilot-plan-card__price"><span>ZMW</span> 1,199 <small>/ month</small></p><ul><li>Up to five named-user seats</li><li>150 proposed AI generations per firm/month</li><li>Onboarding workflow session</li></ul><button class="pilot-plan-card__unavailable" type="button" disabled>Unavailable during pilot</button></article>
+            </div>
+          </section>
+        </section>
+
+        <section id="home-view" class="view">
+          <div class="intro-panel">
+            <p class="eyebrow">Document tools</p>
+            <h1>Your documents.</h1>
+            <p>Choose a form, add the details, then export.</p>
+          </div>
+          <div class="pilot-toolbar" role="status" aria-live="polite">
+            <div><span class="pilot-toolbar__label">Saved details</span><strong id="pilot-profile-summary">Not added</strong><small>Used to fill matching fields.</small></div>
+            <button id="profile-button" class="secondary-button" type="button">Add details</button>
+          </div>
+          <div class="module-register"><span>Document register</span><span>6 forms</span></div>
+          <div id="module-grid" class="module-grid" aria-label="CivilDocs toolkit modules"></div>
+          <section id="draft-exports-panel" class="draft-exports-panel" aria-labelledby="draft-exports-title">
+            <div class="draft-exports-panel__heading"><div><p class="eyebrow">On this device</p><h2 id="draft-exports-title">Export saved drafts</h2><p>Download saved work as PDF or Word.</p></div></div>
+            <div id="draft-exports-list" class="draft-exports-list" aria-live="polite"></div>
+            <p id="draft-export-status" class="draft-export-status" role="status" aria-live="polite"></p>
+          </section>
+        </section>
+
+        <section id="form-view" class="view" hidden>
+          <button id="back-button" class="back-button" type="button">← Documents</button>
+          <div class="form-panel">
+            <p id="form-code" class="eyebrow"></p>
+            <h1 id="form-title"></h1>
+            <p id="form-description" class="form-description"></p>
+            <aside id="entry-feedback-panel" class="entry-feedback-panel" aria-labelledby="entry-feedback-title" hidden>
+              <div class="entry-feedback-panel__heading"><div><p class="eyebrow">Optional note</p><h2 id="entry-feedback-title">Was this easy to find?</h2></div><button id="entry-feedback-dismiss" class="icon-button entry-feedback-panel__dismiss" type="button" aria-label="Dismiss document feedback">×</button></div>
+              <p id="entry-feedback-route" class="entry-feedback-panel__route"></p>
+              <form id="entry-feedback-form" novalidate>
+                <fieldset class="entry-feedback-ratings"><legend>Finding this document was:</legend><label><input type="radio" name="entryRating" value="clear" required> Clear</label><label><input type="radio" name="entryRating" value="uncertain"> A little unclear</label><label><input type="radio" name="entryRating" value="confusing"> Confusing</label></fieldset>
+                <label class="entry-feedback-note-label" for="entry-feedback-note">Add a note <span>Optional</span></label><textarea id="entry-feedback-note" name="entryNote" maxlength="500" placeholder="What should be easier?"></textarea>
+                <div class="entry-feedback-actions"><button class="secondary-button" type="submit">Save feedback</button><button id="entry-feedback-skip" class="text-button entry-feedback-skip" type="button">Skip for now</button></div>
+              </form>
+              <p id="entry-feedback-status" class="entry-feedback-status" role="status" aria-live="polite">Saved on this device.</p>
+            </aside>
+            <form id="toolkit-form" novalidate>
+              <div id="form-fields" class="field-grid"></div>
+              <button id="generate-button" class="primary-button" type="submit">Generate with AI</button>
+              <p id="form-note" class="form-note">Saved on this device.</p>
+              <div id="current-draft-export-actions" class="current-draft-export-actions" aria-label="Export current saved draft">
+                <span>Saved draft</span><button class="secondary-button" type="button" data-draft-export="pdf">Download draft PDF</button><button class="secondary-button" type="button" data-draft-export="word">Download draft Word</button>
+              </div>
+              <div id="generation-loading" class="generation-loading" aria-live="polite" hidden></div>
+              <div id="status-message" class="status-message" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+        </section>
+
+        <section id="boq-review-view" class="view" hidden>
+          <button id="review-back-button" class="back-button" type="button">← Edit bid details</button>
+          <div class="review-panel">
+            <p id="review-code" class="eyebrow">Item confirmation</p>
+            <h1 id="review-title">Review the next item.</h1>
+            <p id="review-description" class="form-description">Keep the item as it stands or change its details before moving on.</p>
+            <div id="rate-reference-note" class="rate-reference-note"><strong>Rate reference:</strong> Sample Zambian material rates are supplied as placeholders only. Verify supplier quotations before tender submission.</div>
+            <div id="review-progress-wrap" class="review-progress-wrap" aria-live="polite">
+              <div class="review-progress-label"><span id="review-progress-text">Item 1 of 1</span><span id="review-progress-percent">0%</span></div>
+              <div class="review-progress-track"><span id="review-progress-bar"></span></div>
+            </div>
+            <div id="review-card" class="review-card" aria-live="polite"></div>
+            <div id="review-actions" class="review-actions">
+              <button id="review-previous-button" class="secondary-button" type="button">← Back</button>
+              <button id="review-keep-button" class="secondary-button" type="button">Keep</button>
+              <button id="review-change-button" class="primary-button" type="button">Change</button>
+            </div>
+            <div id="review-summary-view" hidden>
+              <p class="eyebrow">Review complete</p>
+              <h2>Confirmed items</h2>
+              <div id="review-summary-list" class="review-summary-list"></div>
+              <div id="review-totals" class="review-summary" aria-live="polite">
+                <div><span>Subtotal</span><strong id="review-subtotal">K 0.00</strong></div>
+                <div><span>Contingency (10%)</span><strong id="review-contingency">K 0.00</strong></div>
+                <div><span>VAT (16%)</span><strong id="review-vat">K 0.00</strong></div>
+                <div class="review-grand-total"><span>Grand Total</span><strong id="review-grand-total">K 0.00</strong></div>
+              </div>
+              <button id="confirm-boq-button" class="primary-button" type="button">Confirm &amp; Generate PDF</button>
+              <p class="form-note">The PDF is generated only after you confirm the reviewed items.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="result-view" class="view" hidden>
+          <div class="result-panel">
+            <div class="result-icon" aria-hidden="true">✓</div>
+            <p class="eyebrow">Document complete</p>
+            <h1>Your document is ready.</h1>
+            <p id="result-description">The document has been prepared as a downloadable PDF.</p>
+            <p id="result-success-note" class="result-success-note" role="status">Your PDF has been generated and is ready to download or re-download.</p>
+            <div class="result-actions">
+              <button id="download-button" class="primary-button" type="button">Download PDF</button>
+              <button id="another-button" class="secondary-button" type="button">Generate another</button>
+            </div>
+          </div>
+        </section>
+
+        <aside id="pilot-profile-panel" class="pilot-profile-panel" aria-labelledby="pilot-profile-title" hidden>
+          <div class="pilot-profile-panel__backdrop" data-close-profile></div>
+          <section class="pilot-profile-panel__sheet" role="dialog" aria-modal="true" aria-describedby="pilot-profile-note">
+            <div class="pilot-profile-panel__heading"><div><p class="eyebrow">Saved details</p><h2 id="pilot-profile-title">Use your details once.</h2></div><button id="profile-close-button" class="icon-button" type="button" aria-label="Close saved details">×</button></div>
+            <p id="pilot-profile-note">Saved here to fill matching fields. You can change any value in a form.</p>
+            <form id="pilot-profile-form" class="field-grid" novalidate>
+              <div class="field full"><label for="profile-company">Company name</label><input id="profile-company" name="companyName" type="text" autocomplete="organization" placeholder="For example: CivilDocs Test Contractor"></div>
+              <div class="field"><label for="profile-contact">Contact name</label><input id="profile-contact" name="contactName" type="text" autocomplete="name" placeholder="For example: Jane Engineer"></div>
+              <div class="field"><label for="profile-phone">Phone number</label><input id="profile-phone" name="phone" type="tel" autocomplete="tel" placeholder="For example: +260…"></div>
+              <div class="field"><label for="profile-email">Email</label><input id="profile-email" name="email" type="email" autocomplete="email" placeholder="Optional"></div>
+              <div class="field"><label for="profile-location">Usual project location</label><input id="profile-location" name="location" type="text" autocomplete="address-level2" placeholder="For example: Kitwe"></div>
+              <div class="field full"><button class="primary-button" type="submit">Save details</button></div>
+            </form>
+          </section>
+        </aside>
+
+        <aside id="settings-panel" class="settings-panel" aria-labelledby="settings-title" hidden>
+          <div class="settings-panel__backdrop" data-close-settings></div>
+          <section class="settings-panel__sheet" role="dialog" aria-modal="true" aria-labelledby="settings-title" aria-describedby="settings-note">
+            <div class="settings-panel__heading"><div><p class="eyebrow">Application settings</p><h2 id="settings-title">Settings</h2></div><button id="settings-close-button" class="icon-button" type="button" aria-label="Close settings">×</button></div>
+            <p id="settings-note">Preferences stay on this device.</p>
+            <section class="settings-section" aria-labelledby="appearance-settings-title">
+              <div><p class="settings-section__label">Appearance</p><h3 id="appearance-settings-title">Choose your view</h3><p>Switch between light and dark mode.</p></div>
+              <button id="theme-toggle" class="settings-theme-toggle" type="button" aria-pressed="false">Appearance: Light</button>
+            </section>
+            <section class="settings-section" aria-labelledby="feedback-settings-title">
+              <div><p class="settings-section__label">Feedback</p><h3 id="feedback-settings-title">Saved feedback</h3><p>Review or remove notes saved on this device.</p></div>
+              <button id="feedback-manager-open-button" class="settings-action-button" type="button">View feedback</button>
+            </section>
+          </section>
+        </aside>
+
+        <aside id="feedback-manager-panel" class="feedback-manager-panel" aria-labelledby="feedback-manager-title" hidden>
+          <div class="feedback-manager-panel__backdrop" data-close-feedback-manager></div>
+          <section class="feedback-manager-panel__sheet" role="dialog" aria-modal="true" aria-describedby="feedback-manager-note">
+            <div class="feedback-manager-panel__heading"><div><p class="eyebrow">Pilot feedback</p><h2 id="feedback-manager-title">Saved route feedback</h2></div><button id="feedback-manager-close-button" class="icon-button" type="button" aria-label="Close saved feedback">×</button></div>
+            <p id="feedback-manager-note">Feedback saved on this device.</p>
+            <div id="feedback-manager-list" class="feedback-manager-list" aria-live="polite"></div>
+            <div class="feedback-manager-actions"><button id="feedback-manager-clear" class="danger-button" type="button" hidden>Clear all saved feedback</button></div>
+          </section>
+        </aside>
+
+        <section id="pricing-view" class="view" hidden aria-labelledby="pricing-title">
+          <button id="pricing-back-button" class="back-button" type="button">← Toolkit modules</button>
+          <div class="pricing-intro">
+            <p class="eyebrow">CivilDocs / pilot access</p>
+            <h1 id="pricing-title">Professional drafting, with clear limits.</h1>
+            <p>Founding Engineer access is designed for the original pilot group. Every CivilDocs output remains an editable draft that requires qualified professional review before project, payment, tender, contractual or site use.</p>
+          </div>
+
+          <div class="pricing-grid" aria-label="CivilDocs pricing plans">
+            <article class="pricing-card pricing-card--featured">
+              <p class="pricing-kicker">Original pilot group</p>
+              <h2>Founding Engineer</h2>
+              <p class="pricing-price"><span>ZMW</span> 199 <small>/ month</small></p>
+              <p class="pricing-period">For the first three paid months</p>
+              <ul class="pricing-list">
+                <li>All six CivilDocs modules</li>
+                <li>Editable review before PDF export</li>
+                <li>30 proposed AI document generations per named user/month</li>
+                <li>Founder feedback route and launch updates</li>
+              </ul>
+              <button class="primary-button pricing-contact-button unavailable-price-button" type="button" disabled>Not available during pilot</button>
+            </article>
+
+            <article class="pricing-card">
+              <p class="pricing-kicker">Standard individual plan</p>
+              <h2>Professional</h2>
+              <p class="pricing-price"><span>ZMW</span> 299 <small>per user, per month</small></p>
+              <p class="pricing-period">Published plan after launch</p>
+              <ul class="pricing-list">
+                <li>All six CivilDocs modules</li>
+                <li>30 proposed AI document generations per named user/month</li>
+                <li>PDF export and device-local draft recovery</li>
+                <li>Clear usage reminders on this device</li>
+              </ul>
+              <button class="secondary-button pricing-contact-button unavailable-price-button" type="button" disabled>Not available during pilot</button>
+            </article>
+
+            <article class="pricing-card">
+              <p class="pricing-kicker">Small contractor team</p>
+              <h2>Firm</h2>
+              <p class="pricing-price"><span>ZMW</span> 1,199 <small>/ month</small></p>
+              <p class="pricing-period">Up to five named users</p>
+              <ul class="pricing-list">
+                <li>Five named-user seats</li>
+                <li>150 proposed AI document generations per firm/month</li>
+                <li>One onboarding and workflow session</li>
+                <li>Priority launch feedback route</li>
+              </ul>
+              <button class="secondary-button pricing-contact-button unavailable-price-button" type="button" disabled>Not available during pilot</button>
+            </article>
+          </div>
+
+          <section class="fair-use-panel" aria-labelledby="fair-use-title">
+            <div>
+              <p class="eyebrow">Transparent fair use</p>
+              <h2 id="fair-use-title">Your Founding Engineer allowance on this device</h2>
+              <p id="fair-use-summary" class="fair-use-summary" role="status" aria-live="polite"></p>
+            </div>
+            <div class="fair-use-meter" aria-label="Device-local Founding Engineer generation allowance">
+              <div class="fair-use-meter__labels"><span id="fair-use-used">0 used</span><strong id="fair-use-remaining">30 remaining</strong></div>
+              <div class="fair-use-meter__track"><span id="fair-use-meter-bar"></span></div>
+              <p id="fair-use-detail" class="fair-use-detail"></p>
+            </div>
+            <div id="fair-use-warning" class="fair-use-warning" role="alert" hidden></div>
+            <p class="fair-use-footnote">This is a privacy-preserving <strong>device-local pilot tracker</strong>. It records completed document generations in this browser only and resets for a new local calendar month. It is not an account-level billing meter and cannot enforce a subscription across browsers or devices.</p>
+          </section>
+
+          <section class="pricing-fine-print" aria-label="Plan and fair-use terms">
+            <h2>How the allowance works</h2>
+            <p>An AI generation is one completed request to create a new document candidate. Downloads, review edits, client-side validation errors and retries caused solely by a CivilDocs technical failure do not count. The device-local tracker warns at 24 of 30 completed generations and blocks new requests in this browser after 30 until the next local calendar month. Clearing browser data also clears this local record.</p>
+            <p>Paid plan billing, named-user accounts and account-level usage enforcement are not active in the current pilot. Future paid terms will state the billing period, renewal, cancellation route and any overage price before payment is accepted.</p>
+          </section>
+
+          <section id="feedback-section" class="feedback-panel" aria-labelledby="feedback-title">
+            <p class="eyebrow">Pilot questions and feedback</p>
+            <h2 id="feedback-title">Ask about the Founding Engineer plan.</h2>
+            <p>Write a short question, improvement request or access enquiry. CivilDocs will prepare a message for you to copy or, when a verified support address is configured, open in your email app. Nothing is sent automatically.</p>
+            <form id="pilot-feedback-form" novalidate>
+              <div class="field-grid">
+                <div class="field"><label for="feedback-name">Your Name</label><input id="feedback-name" name="name" type="text" autocomplete="name" placeholder="Optional"></div>
+                <div class="field"><label for="feedback-plan">Plan of Interest</label><select id="feedback-plan" name="plan"><option>Founding Engineer</option><option>Professional</option><option>Firm</option><option>General Pilot Feedback</option></select></div>
+                <div class="field full"><label for="feedback-message">Question or Feedback</label><textarea id="feedback-message" name="message" required placeholder="For example: I would like to discuss Founding Engineer access for my payment-certificate workflow."></textarea></div>
+              </div>
+              <button class="primary-button" type="submit">Prepare Feedback Message</button>
+            </form>
+            <div id="feedback-result" class="feedback-result" role="status" aria-live="polite" hidden>
+              <p id="feedback-result-text"></p>
+              <div class="feedback-actions"><button id="feedback-copy-button" class="secondary-button" type="button">Copy Message</button><a id="feedback-email-link" class="secondary-button" href="#" hidden>Open Email Draft</a></div>
+              <textarea id="feedback-preview" class="feedback-preview" aria-label="Prepared feedback message" readonly></textarea>
+            </div>
+          </section>
+        </section>
+
+        <section id="terms-view" class="view" hidden aria-labelledby="terms-title">
+          <button id="terms-back-button" class="back-button" type="button">← Toolkit modules</button>
+          <article class="terms-panel">
+            <p class="eyebrow">CivilDocs / Pilot notice</p>
+            <h1 id="terms-title">Terms and Conditions</h1>
+            <p class="terms-meta"><strong>Version 1.1</strong> · Prepared 20 August 2026 · Zambia-oriented pilot terms</p>
+            <div class="terms-alert" role="note"><strong>Important:</strong> CivilDocs is currently an evaluation pilot. These terms explain the pilot use conditions and product limitations. Before any paid launch, the CivilDocs operator must add verified legal-entity details, publish a reviewed privacy notice, and obtain review from a qualified Zambian lawyer.</div>
+
+            <section class="terms-section">
+              <h2>1. Service scope and professional review</h2>
+              <p>CivilDocs provides AI-assisted drafting, review and PDF-export tools for bid packages, interim payment certificates, variation and extension-of-time claims, NCC grade portfolios, escalation clauses, and site inspection/defect logs.</p>
+              <p><strong>Every output is an editable draft.</strong> It is not engineering certification, legal advice, quantity-surveying certification, procurement approval, payment approval, a site instruction, contractual notice, or a substitute for independent professional judgement. You are responsible for checking and approving quantities, rates, calculations, dates, contractual references, project facts, safety issues and suitability before any tender, payment, claim, contract or site use.</p>
+            </section>
+
+            <section class="terms-section">
+              <h2>2. Pilot access and future paid plans</h2>
+              <p>Use of the evaluation pilot does not create a paid subscription, automatic renewal or payment obligation. CivilDocs may change, pause or end pilot access where reasonably necessary for security, legal compliance, upstream-provider availability or misuse prevention.</p>
+              <p>Before paid plans are offered, CivilDocs will clearly state the plan price, billing frequency, cancellation process, renewal mechanism, included AI-generation allowance and any overage price. A paid recurring entitlement will not be advertised as technically enforced until named-user accounts, payment controls and per-account usage measurement are live.</p>
+            </section>
+
+            <section class="terms-section">
+              <h2>3. Proposed fair-use limits for paid plans</h2>
+              <div class="terms-table-wrap" role="region" aria-label="Proposed paid plan AI generation allowances" tabindex="0">
+                <table class="terms-table">
+                  <thead><tr><th>Plan</th><th>Included allowance</th><th>Proposed additional capacity</th></tr></thead>
+                  <tbody>
+                    <tr><td>Founding Engineer</td><td>30 AI document generations per named user per calendar month</td><td>ZMW 75 for 10 additional generations, if offered</td></tr>
+                    <tr><td>Professional</td><td>30 AI document generations per named user per calendar month</td><td>ZMW 75 for 10 additional generations, if offered</td></tr>
+                    <tr><td>Firm</td><td>150 AI document generations per firm account per calendar month</td><td>ZMW 75 for 10 additional generations, if offered</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>An AI generation means one completed request that CivilDocs sends to its AI service to create a new document candidate. A PDF download, user edit after review, rejected form validation, or retry caused solely by a documented CivilDocs service failure does not count. Allowances do not roll over. CivilDocs may apply reasonable rate, request-size, duplicate-request, queueing or temporary protection controls even where an allowance appears unused.</p>
+              <p>You must not use CivilDocs for automated, scripted, bulk, scraping, stress-testing, resale, credential-sharing or other abusive use; to bypass usage controls; or to submit unlawful, deceptive, confidential or third-party content without authority.</p>
+            </section>
+
+            <section class="terms-section">
+              <h2>4. Customer data, privacy and record keeping</h2>
+              <p>You remain responsible for information and project material that you submit. Do not provide personal, confidential or third-party data unless you have a lawful basis and authority to do so. CivilDocs may process submitted data only as needed to provide, secure, troubleshoot and support the Service, meet legal obligations and enforce these terms.</p>
+              <p>Zambia’s <a href="https://www.parliament.gov.zm/node/8853" target="_blank" rel="noopener noreferrer">Data Protection Act, 2021</a> regulates the collection, use, transmission, storage and other processing of personal data. Before paid launch, CivilDocs must publish a reviewed privacy notice, identify the responsible controller contact, document relevant provider arrangements, set a retention schedule and confirm applicable registration or licensing obligations.</p>
+              <p>Browser drafts may be stored locally on the device used to create them. CivilDocs does not guarantee indefinite retention of drafts, PDFs, logs or other service data. Download and securely preserve any project record you need to retain.</p>
+            </section>
+
+            <section class="terms-section">
+              <h2>5. Acceptable use and ownership</h2>
+              <p>You must provide accurate project information, protect your access credentials, maintain your own important records and ensure that anyone using CivilDocs for your organisation is authorised. CivilDocs retains rights in its software, prompts, structure, branding and documentation. Subject to these terms, you may use generated output for your legitimate internal professional work, while remaining responsible for checking third-party rights, confidentiality, procurement requirements and contractual duties.</p>
+            </section>
+
+            <section class="terms-section">
+              <h2>6. Availability, disclaimer and liability limit</h2>
+              <p>CivilDocs depends on internet connectivity and third-party AI and hosting systems. The Service is provided on an “as available” basis. CivilDocs does not guarantee uninterrupted, error-free, timely, complete, correct or tender/contract-specific output.</p>
+              <p>To the fullest extent permitted by law, CivilDocs is not liable for project cost overruns, rejected tenders, failed claims, uncertified payments, site defects, delays, loss of profit or other loss arising from reliance on an unreviewed or incorrectly used draft. Nothing here excludes a right that cannot lawfully be excluded or limited. For a future paid plan, any final liability cap and refund position must be reviewed and published with the verified operator details.</p>
+            </section>
+
+            <section class="terms-section">
+              <h2>7. Electronic acceptance, changes and applicable law</h2>
+              <p>To enter this pilot, you must actively tick the acceptance box on the pilot-access screen. CivilDocs records the accepted pilot Terms version and timestamp only in your current browser. This browser-local record is not an account-level, payment, identity-verification or paid-service acceptance record.</p>
+              <p>Electronic acceptance, notices and records are intended to operate consistently with Zambia’s <a href="https://www.parliament.gov.zm/node/8842" target="_blank" rel="noopener noreferrer">Electronic Communications and Transactions Act, 2021</a>. CivilDocs may update these pilot terms by publishing a revised version. Material paid-service changes will be disclosed before paid renewal, except where an immediate security, legal or provider restriction requires prompt action.</p>
+              <p>These pilot terms are intended to be governed by the laws of Zambia. A final paid-service agreement must include the verified CivilDocs legal entity, contact address, dispute-notice route and lawyer-reviewed customer protections before payment is accepted.</p>
+            </section>
+
+            <p class="terms-closing">Questions about these pilot terms: contact <strong>[CivilDocs legal contact to be added before paid launch]</strong>.</p>
+          </article>
+        </section>
+      </main>
+
+      <footer><span>Drafts stay on this device.</span><nav class="footer-nav" aria-label="CivilDocs information"><button id="settings-link" class="footer-link" type="button">Settings</button><button id="pricing-link" class="footer-link" type="button">Pricing &amp; Fair Use</button><button id="terms-link" class="footer-link" type="button">Terms and Conditions</button></nav></footer>
+    </div>
+    <script src="/runtime-config.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
+

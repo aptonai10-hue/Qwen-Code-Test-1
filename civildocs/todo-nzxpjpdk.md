@@ -1,0 +1,128 @@
+# Project TODO
+
+- [x] Review the supplied 90-test CivilDocs pilot pack and map its requirements to the current modules.
+- [x] Inspect the current data models, calculation logic, PDF generation flows, and test coverage.
+- [x] Validate and, if necessary, correct the Module 5 M5-01 escalation calculation and PDF output.
+- [x] Remove user-visible placeholder text and add complete cover-letter and drawings-list sections to the Module 1 bid-package PDF.
+- [x] Add deterministic unit tests for financial calculations, date logic, warnings, and PDF data consistency.
+- [x] Run the critical module workflows against the live hosted application and capture validation evidence.
+- [x] Save a published checkpoint and deliver the test-and-fix summary.
+- [x] Re-run the live Module 1 Chimwemwe workflow after deployment and verify the replacement PDF has a tender cover letter, drawings checklist, and no user-visible placeholders.
+- [x] Record the post-fix Module 1 PDF findings in the pilot evidence register.
+- [x] Resolve the production-bundle mismatch so the published site serves the repaired Module 1 PDF composition.
+- [x] Assign a deterministic responsible party and render a dedicated corrective-action field for Module 6 defect-log PDFs.
+- [x] Re-run the live Module 6 major-defect workflow and verify responsibility, action, date, and evidence fields in the PDF.
+- [x] Prepare and deliver a Markdown report of the completed CivilDocs pilot validation.
+- [x] Audit the current entry flow, local draft persistence, profile data, and AI request lifecycle for pilot-test UX improvements.
+- [x] Add a gated pilot welcome screen with faded unavailable login, signup, Google, and pricing controls plus a “Test the app for free” entry action.
+- [x] Add a local pilot profile that saves company, contact, and phone details and prepopulates compatible form fields.
+- [x] Preserve every form edit locally, restore incomplete drafts, and keep a failed generation’s inputs available for retry.
+- [x] Add structured, plain-language generation-failure panels with reason, what happened, why, and the next action.
+- [x] Add a bounded in-session automatic retry with a visible countdown and a manual retry alternative.
+- [x] Restore per-keystroke input handling so every text edit is saved to the browser-local draft immediately.
+- [x] Refine desktop and mobile UI states, maintaining the CivilDocs watermark and accessible unavailable states.
+- [x] Add automated regression coverage and run ten repeatable new-UX validation scenarios.
+- [x] Create Cloudflare deployment documentation and a downloadable source handoff with server-side AI proxy requirements.
+- [x] Save a published checkpoint and deliver the completed pilot UX implementation and handoff.
+- [x] Audit mobile layouts, touch interactions, keyboard flow, responsive navigation, and form usability at phone breakpoints.
+- [x] Review the product against a high-bar SaaS readiness checklist covering onboarding, accessibility, reliability, security posture, performance, observability, and support operations.
+- [x] Fix the highest-impact mobile and UX defects discovered during the review.
+- [x] Implement feasible reliability, security, performance, and operational safeguards identified by the review.
+- [x] Restrict production-only Gemini metrics and add Content Security Policy plus Permissions Policy headers.
+- [x] Validate the final production error, retry, and mobile interaction states on the published domain.
+- [x] Create a severity-scored SaaS readiness checklist with direct evidence for performance, observability, support operations, security, reliability, onboarding, and accessibility.
+- [x] Add request-correlated, privacy-safe structured server logs for AI generation outcomes and validate them with automated coverage.
+- [x] Preserve the explicitly documented paid-launch operations gaps as release blockers rather than presenting them as implemented safeguards.
+- [x] Revalidate the completed SaaS review against the documented checklist before final release.
+- [x] Make the document register the primary pilot entry object and demote account and pricing context to secondary status.
+- [x] Re-run mobile and published-domain checks after the entry hierarchy update.
+- [x] Replace the production-broken manuscript-storage brand assets with deployment-stable web assets and revalidate the public entry screen.
+- [x] Sync the Cloudflare Worker handoff with the release security headers and privacy-safe request outcome logging.
+- [x] Run iterative browser, build, type, and regression tests across mobile and desktop flows; document all review findings and residual risks.
+- [x] Publish the reviewed mobile-ready SaaS release and deliver the readiness report.
+- [x] Exercise a simulated published-client generation failure and verify the four-part recovery panel plus manual retry without calling the upstream AI service.
+- [x] Add a final post-release validation note that distinguishes completed pilot safeguards from paid-launch blockers.
+- [x] Exercise the published simulated recovery flow’s manual retry and confirm all form values remain intact after the repeat failure.
+- [x] Run a 375×812 published-domain mobile interaction check covering entry, workspace, and a form state.
+- [x] Preserve the new visible pricing, appearance controls, and Terms validation while restoring the pilot four-part failure panel, draft safety, manual retry, and one bounded automatic retry.
+- [x] Add regression coverage proving the combined commercial UX and pilot recovery behavior coexist.
+- [x] Inspect the browser-local draft format and existing PDF tools to define a safe reusable export model.
+- [x] Add accessible PDF and Word-compatible export controls for saved drafts without sending data to the server.
+- [x] Add unit coverage and desktop/mobile validation for empty, populated, and dynamic-row saved drafts.
+- [x] Verify the empty saved-draft register message through automated coverage.
+- [x] Export a dynamic-row draft end to end and confirm its PDF and Word output includes the saved rows.
+- [x] Exercise both export actions at a 375×812 phone breakpoint and record the result.
+- [x] Add a rendered-markup test asserting the empty saved-draft register presents its no-drafts state.
+- [x] Run a phone-width interaction simulation for both export controls and record its limitations alongside the release-build mobile screenshot.
+- [x] Publish the draft-export release and refresh the Cloudflare source handoff.
+- [x] Save the final draft-export checkpoint, verify its public release, and deliver the refreshed Cloudflare archive.
+- [x] Deliver the refreshed Cloudflare archive and saved-draft export validation record with the published release checkpoint.
+- [x] Audit all visible entry, workspace, pricing, and settings copy for internal, redundant, or distracting language.
+- [x] Simplify pilot-facing wording without weakening Terms, local-data, pricing, or availability disclosures.
+- [x] Add one restrained engineering visual asset that improves presentation without competing with document workflows.
+- [x] Validate the refined desktop and phone layouts, accessibility labels, and working pilot flows.
+- [x] Publish the streamlined shipping-ready pilot release.
+- [x] Update stale UI-copy regression assertions so they validate the simplified privacy wording.
+- [x] Confirm the simplified feedback privacy assertion and complete regression suite pass.
+- [x] Refine the visual into a quieter technical substrate and restyle the pricing section as an administrative rate schedule.
+- [x] Prevent the pilot watermark from crowding the brand tagline on narrow phone headers.
+- [x] Capture a fresh 375×812 screenshot proving the compact brand and pilot watermark remain separate.
+- [x] Run the post-refinement pilot flow through Terms acceptance, document opening, saved-draft export controls, and settings access.
+- [x] Verify the refined entry and workspace keyboard-reachable actions, dialog labels, and live status regions.
+- [x] Link the Settings dialog role explicitly to its visible title for assistive technologies.
+- [x] Confirm the Settings dialog exposes its title linkage, modal state, and focused close action after the refinement.
+- [x] Activate both refined saved-draft export controls and confirm the PDF and Word downloads are produced.
+- [x] Confirm the post-refinement PDF and Word export files exist in the browser download directory.
+- [x] Verify the refined pilot-access, feedback, and draft-export status regions retain their live-status semantics.
+- [x] Add keyboard Escape dismissal for the Settings and saved-feedback dialogs, then verify focus returns to the trigger.
+- [x] Open the saved-feedback manager, dismiss it with Escape, and confirm focus returns to the View feedback trigger.
+- [x] Run and record a keyboard-only pass across Terms, a document row, Settings, current-draft exports, and back navigation.
+- [x] Add focused automated evidence that the refined entry, workspace, export, back, and Settings controls remain native keyboard-focusable elements.
+- [x] Save the final streamlined-copy and keyboard-accessibility checkpoint.
+- [x] Verify the public site serves the streamlined copy, engineering visual, and keyboard-dialog refinements.
+- [x] Refresh the Cloudflare handoff against the published final checkpoint.
+- [x] Save the final public-verification evidence checkpoint and confirm the handoff source matches it.
+- [x] Restore a prominent orange Use for free entry button on the pilot welcome screen.
+- [x] Remove document-module rows from the public entry screen and reveal the register only after Terms acceptance.
+- [x] Ensure every document workflow remains inaccessible until the user accepts the Terms and Conditions.
+- [x] Retain clearly unavailable Sign in, Sign up, Google sign-in, and plan-tier controls.
+- [x] Add regression coverage and validate the revised Terms-gated entry flow on desktop and phone.
+- [x] Publish the revised pilot-entry release.
+- [x] Prepare a final operator manual covering deployment, implemented features, validation, and remaining launch actions.
+- [x] Build and integrity-check a final downloadable source archive containing the manual and current Cloudflare handoff files.
+- [x] Deliver the final archive and manual to the user.
+- [x] Prepare a current-state report on working capabilities, validation results, test readiness, and pilot limitations.
+- [x] Deliver the current-state readiness report to the user.
+- [x] Reconcile the supplied stress-suite rows against actual recorded production evidence without fabricating results.
+- [x] Prepare and deliver an evidence-only full stress-suite pass/fail table, including Module 5 and Module 2 boundary evidence and repaired failures.
+- [ ] Map all 104 supplied stress-suite rows to executable published-domain scenarios and evidence fields.
+- [ ] Execute and document the Module 1 and Module 2 published-domain stress scenarios, including IPC boundary cases.
+- [ ] Execute and document the Module 3, Module 4, and Module 5 published-domain stress scenarios, including the second-day escalation baseline.
+- [ ] Execute and document the Module 6 and cross-module published-domain stress scenarios.
+- [ ] Repair verified application defects, rerun affected production scenarios, and complete the full regression gate.
+- [ ] Publish the completed stress-test release and deliver the final row-by-row evidence report.
+- [x] Label negative IPC net-payment results clearly as a deduction or recovery in both review and PDF output.
+- [x] Verify the reported extra PDF page is an extraction-metadata false positive; visual inspection confirmed a correct two-page export.
+- [x] Add regression coverage for negative IPC labelling and document the direct visual PDF page-count verification.
+- [x] Enable an explicitly labelled test-browser-only generation allowance for the full stress run without changing the public pilot plan limit.
+- [ ] Remove the temporary test-browser allowance after the full stress-suite evidence is complete.
+- [x] Implement a formal test-browser-only allowance that does not alter the public pilot fair-use limit.
+- [x] Clearly label the test-only allowance in the active browser/session and document its scope.
+- [x] Add regression coverage proving the QA allowance cannot change normal pilot fair-use behavior.
+- [x] Verify the QA stress-session scope is recorded in a saved project log with its exact query and session marker.
+- [x] Add end-to-end regression coverage for normal cap enforcement, QA bypass, and QA notice visibility.
+- [x] Record the exact QA query, session-storage key, and session value in the stress-run log.
+- [x] Add behavioural coverage for normal cap blocking, guarded QA non-counting, and QA notice state transitions.
+- [x] Exercise app-level normal cap blocking, exact QA bypass, and normal-versus-QA usage recording through shared runtime helpers.
+- [x] Exercise the QA-notice visibility condition as the same state transition used by the rendered application.
+- [x] Repair the verified CD-01 multi-page PDF page-two footer overlap/omission, then rerun the affected published bid-package scenario.
+- [x] Record explicit extracted evidence that the repaired CD-01 page-two footer precedes its continuation page.
+- [x] Verify the repaired CD-01 page-two/page-three layout against the published PDF and close the repair evidence record.
+- [x] Repair the verified CD-01 high-budget scope inflation behavior, add focused regression coverage, and rerun Test 1.3 on the published domain.
+- [x] Repair the verified CD-06 PDF footer-total inconsistency when a corrective-action-register page is appended, then add regression coverage and rerun the affected published scenario.
+- [x] Repair the verified CD-06 fabricated affected-quantity fallback for a source observation with no stated quantity, add regression coverage, and rerun the affected published scenario.
+- [x] Repair the CD-06 source-quantity detector so an explicit linear-metre measurement is retained, add regression coverage, and rerun the affected mixed-severity scenario.
+- [x] Repair CD-06 so explicit source quantity units remain exact rather than being pluralised or altered by the AI response, add regression coverage, and rerun the mixed-severity scenario.
+- [x] Repair CD-06 so an explicit continuous source quantity, including 0.8 tonnes, is retained without an unintended practical-rounding alteration; add regression coverage and rerun the detailed scenario.
+- [ ] Repair verified CD-03 repeat-generation claim-allocation drift for identical combined inputs, add regression coverage, and rerun the published scenario.
+

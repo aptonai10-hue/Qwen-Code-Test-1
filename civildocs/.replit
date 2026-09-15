@@ -1,0 +1,9 @@
+run = "pnpm install --frozen-lockfile && pnpm run build && NODE_ENV=production node dist/index.js"
+entrypoint = "server/index.ts"
+
+[deployment]
+run = ["sh", "-c", "pnpm install --frozen-lockfile && pnpm run build && NODE_ENV=production node dist/index.js"]
+
+[env]
+NODE_ENV = "production"
+

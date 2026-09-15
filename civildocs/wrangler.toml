@@ -1,0 +1,15 @@
+name = "civildocs-pilot"
+main = "cloudflare/worker.mjs"
+compatibility_date = "2026-08-20"
+
+[assets]
+directory = "./cloudflare-dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+# Set to the deployed custom-domain origin after the first deployment, for example:
+# ALLOWED_ORIGINS = "https://pilot.example.com"
+[vars]
+ALLOWED_ORIGINS = ""
+
